@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coline Eyssautier — Backend &amp; Data Developer</title>
+<meta name="description" content="Portfolio of Coline Eyssautier — backend and data developer specializing in automation pipelines, RAG systems, and operations tooling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12141A;
+    --surface:#1B1E26;
+    --surface-2:#20242E;
+    --border:#2C303C;
+    --text:#ECEAE3;
+    --muted:#8B8F9C;
+    --accent:#5FBFA6;
+    --accent-dim:#3E7F6F;
+    --amber:#E2B33C;
+    --radius:10px;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .wrap{max-width:1040px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(18,20,26,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 0;
+  }
+  .mark{
+    font-family:var(--mono); font-size:14px; letter-spacing:0.02em;
+    color:var(--accent); text-decoration:none;
+    display:flex; align-items:center; gap:8px;
+  }
+  .mark::before{
+    content:""; width:7px; height:7px; border-radius:50%;
+    background:var(--accent); box-shadow:0 0 0 3px rgba(95,191,166,0.18);
+    flex-shrink:0;
+  }
+  nav.links{display:flex; gap:28px; font-family:var(--mono); font-size:13px;}
+  nav.links a{text-decoration:none; color:var(--muted); transition:color .15s ease;}
+  nav.links a:hover{color:var(--text);}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 64px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; color:var(--accent);
+    letter-spacing:0.08em; text-transform:uppercase; margin:0 0 18px;
+  }
+  h1{
+    font-family:var(--display); font-weight:700;
+    font-size:clamp(2.4rem, 5.5vw, 4.1rem);
+    line-height:1.04; margin:0 0 20px; letter-spacing:-0.01em;
+  }
+  .tagline{
+    font-size:clamp(1.05rem, 2vw, 1.25rem);
+    color:var(--muted); max-width:620px; margin:0 0 32px;
+  }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:10px 22px;
+    font-family:var(--mono); font-size:13px; color:var(--muted);
+    margin-bottom:36px;
+  }
+  .hero-meta span{display:flex; align-items:center; gap:7px;}
+  .hero-meta span::before{content:"·"; color:var(--border); display:none;}
+
+  .cta-row{display:flex; flex-wrap:wrap; gap:14px;}
+  .btn{
+    font-family:var(--body); font-weight:600; font-size:14.5px;
+    padding:12px 22px; border-radius:999px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease;
+    border:1px solid transparent;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--accent); color:#0E1712;}
+  .btn-primary:hover{background:#70cbb3;}
+  .btn-ghost{border-color:var(--border); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
+
+  /* ---------- PIPELINE SIGNATURE ---------- */
+  .pipeline{
+    margin-top:56px; padding:22px 24px;
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius);
+    display:flex; align-items:center; overflow-x:auto;
+    gap:0;
+  }
+  .pipeline-stage{
+    display:flex; align-items:center; gap:10px;
+    font-family:var(--mono); font-size:12.5px; color:var(--muted);
+    white-space:nowrap; padding:0 18px; position:relative;
+  }
+  .pipeline-stage .dot{
+    width:6px; height:6px; border-radius:50%; background:var(--border);
+    flex-shrink:0;
+  }
+  .pipeline-stage.active{color:var(--text);}
+  .pipeline-stage.active .dot{
+    background:var(--accent);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  .pipeline-connector{
+    flex:1; height:1px; background:var(--border); min-width:24px;
+    position:relative;
+  }
+  .pipeline-connector::after{
+    content:""; position:absolute; top:-1.5px; left:0; height:4px; width:4px;
+    border-radius:50%; background:var(--accent);
+    animation:travel 4.5s linear infinite;
+  }
+  @keyframes pulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(95,191,166,0.35);}
+    50%{box-shadow:0 0 0 5px rgba(95,191,166,0);}
+  }
+  @keyframes travel{
+    0%{left:0; opacity:0;}
+    8%{opacity:1;}
+    92%{opacity:1;}
+    100%{left:100%; opacity:0;}
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:72px 0;}
+  section + section{border-top:1px solid var(--border);}
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    margin-bottom:36px; flex-wrap:wrap; gap:10px;
+  }
+  .section-num{
+    font-family:var(--mono); font-size:12.5px; color:var(--accent);
+  }
+  h2{
+    font-family:var(--display); font-size:clamp(1.5rem,3vw,2rem);
+    font-weight:600; margin:6px 0 0;
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .grid{
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:18px;
+  }
+  @media (max-width:720px){.grid{grid-template-columns:1fr;}}
+
+  .card{
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius); padding:26px;
+    display:flex; flex-direction:column; gap:14px;
+    transition:border-color .18s ease, transform .18s ease;
+  }
+  .card:hover{border-color:var(--accent-dim); transform:translateY(-2px);}
+  .card-top{display:flex; align-items:flex-start; justify-content:space-between; gap:12px;}
+  .card h3{
+    font-family:var(--display); font-size:1.2rem; font-weight:600; margin:0;
+  }
+  .status{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:0.04em;
+    text-transform:uppercase; padding:4px 9px; border-radius:5px;
+    white-space:nowrap; flex-shrink:0; margin-top:2px;
+  }
+  .status.deployed{background:rgba(95,191,166,0.14); color:var(--accent);}
+  .status.active{background:rgba(226,179,60,0.14); color:var(--amber);}
+  .card p{margin:0; color:var(--muted); font-size:14.5px;}
+  .stack{display:flex; flex-wrap:wrap; gap:7px; margin-top:2px;}
+  .tag{
+    font-family:var(--mono); font-size:11px; color:var(--muted);
+    background:var(--surface-2); border:1px solid var(--border);
+    padding:3px 9px; border-radius:5px;
+  }
+  .card-links{display:flex; gap:16px; margin-top:auto; padding-top:6px;}
+  .card-links a{
+    font-family:var(--mono); font-size:12.5px; color:var(--text);
+    text-decoration:none; border-bottom:1px solid var(--accent-dim);
+    padding-bottom:2px; transition:color .15s ease, border-color .15s ease;
+  }
+  .card-links a:hover{color:var(--accent); border-color:var(--accent);}
+
+  .edit-note{
+    font-family:var(--mono); font-size:11.5px; color:var(--amber);
+    background:rgba(226,179,60,0.08); border:1px dashed rgba(226,179,60,0.4);
+    padding:3px 8px; border-radius:5px; display:inline-block; margin-top:2px;
+  }
+
+  /* ---------- SKILLS STRIP ---------- */
+  .skills-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
+  }
+  @media (max-width:720px){.skills-grid{grid-template-columns:1fr;}}
+  .skill-col h4{
+    font-family:var(--mono); font-size:12px; color:var(--accent);
+    text-transform:uppercase; letter-spacing:0.06em; margin:0 0 12px;
+  }
+  .skill-col ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px;}
+  .skill-col li{font-size:14.5px; color:var(--text);}
+
+  /* ---------- FOOTER / CONTACT ---------- */
+  footer{padding:64px 0 56px;}
+  .contact-row{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:28px;
+  }
+  footer h2{margin-bottom:14px;}
+  footer p.muted{color:var(--muted); font-size:14.5px; max-width:420px; margin:0 0 22px;}
+  .contact-links{display:flex; flex-direction:column; gap:10px; align-items:flex-start;}
+  .contact-links a{
+    font-family:var(--mono); font-size:14px; text-decoration:none;
+    color:var(--text); display:flex; align-items:center; gap:8px;
+  }
+  .contact-links a:hover{color:var(--accent);}
+  .foot-bottom{
+    margin-top:48px; padding-top:22px; border-top:1px solid var(--border);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-family:var(--mono); font-size:11.5px; color:var(--muted);
+  }
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal.in{opacity:1; transform:none;}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="mark">COLINE EYSSAUTIER</a>
+    <nav class="links">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow">Backend &amp; Data Developer</p>
+      <h1>I run operations end-to-end,<br>then automate the parts that repeat.</h1>
+      <p class="tagline">Self-taught backend and data developer building scraping pipelines, LLM classification systems, and REST APIs — with an operations background that shapes how I scope and ship them.</p>
+
+      <div class="hero-meta">
+        <span>Relocating to Warsaw, Sept 2026</span>
+        <span>French · English · German · Polish (learning)</span>
+        <span>coline.eyssautier@gmail.com</span>
+      </div>
+
+      <div class="cta-row">
+        <a href="#projects" class="btn btn-primary">View projects</a>
+        <a href="https://github.com/YOUR-GITHUB-USERNAME" class="btn btn-ghost">GitHub</a>
+        <a href="https://linkedin.com/in/YOUR-LINKEDIN" class="btn btn-ghost">LinkedIn</a>
+      </div>
+
+      <div class="pipeline" aria-hidden="true">
+        <div class="pipeline-stage active"><span class="dot"></span>SCOPE</div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-stage active"><span class="dot"></span>BUILD</div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-stage active"><span class="dot"></span>AUTOMATE</div>
+        <div class="pipeline-connector"></div>
+        <div class="pipeline-stage active"><span class="dot"></span>SHIP</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-num">01 — Selected work</span>
+          <h2>Projects</h2>
+        </div>
+      </div>
+
+      <div class="grid">
+
+        <div class="card reveal">
+          <div class="card-top">
+            <h3>Metal Finder</h3>
+            <span class="status deployed">Deployed</span>
+          </div>
+          <p>Concert discovery platform: automated scraping of live show listings, deduplication, and search, deployed on a production schedule.</p>
+          <div class="stack">
+            <span class="tag">FastAPI</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">SeleniumBase</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">Cloud Run</span>
+          </div>
+          <div class="card-links">
+            <a href="https://metal-finder.online/">Code ↗</a>
+            <a href="#">Live ↗</a>
+          </div>
+          <span class="edit-note">edit: add real links</span>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-top">
+            <h3>Corpus Bacot</h3>
+            <span class="status deployed">Deployed</span>
+          </div>
+          <p>Computational journalism pipeline analyzing media narratives at scale: multi-source scraping, LLM narrative classification, and an open CC BY 4.0 dataset.</p>
+          <div class="stack">
+            <span class="tag">Python</span>
+            <span class="tag">Groq LLM API</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">TF-IDF / K-Means</span>
+          </div>
+          <div class="card-links">
+            <a href="https://corpus-bacot.onrender.com/#">Code ↗</a>
+            <a href="#">Dataset ↗</a>
+          </div>
+          <span class="edit-note">edit: add real links</span>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-top">
+            <h3>FreelanceOps</h3>
+            <span class="status active">In progress</span>
+          </div>
+          <p>Freelance management API built as a deliberate PostgreSQL skill-building project: async ORM, migrations, auth, and a live dashboard.</p>
+          <div class="stack">
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">SQLAlchemy 2.0</span>
+            <span class="tag">Alembic</span>
+            <span class="tag">JWT Auth</span>
+            <span class="tag">Streamlit</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/YOUR-GITHUB-USERNAME/freelanceops">Code ↗</a>
+          </div>
+          <span class="edit-note">edit: add real link</span>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-top">
+            <h3>SOYA RAG Pipeline</h3>
+            <span class="status active">In progress</span>
+          </div>
+          <p>Internal AI assistant for Erasmus+ grant analysis: multilingual Hungarian PDF ingestion, retrieval-augmented generation, and a query interface for non-technical staff.</p>
+          <div class="stack">
+            <span class="tag">Groq</span>
+            <span class="tag">Voyage AI</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">Streamlit</span>
+          </div>
+          <div class="card-links">
+            <a href="https://github.com/YOUR-GITHUB-USERNAME/soya-rag">Code ↗</a>
+          </div>
+          <span class="edit-note">edit: add real link, or remove if private</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="section-num">02 — Toolkit</span>
+          <h2>Skills</h2>
+        </div>
+      </div>
+      <div class="skills-grid reveal">
+        <div class="skill-col">
+          <h4>Automation &amp; Data</h4>
+          <ul>
+            <li>Python — FastAPI, SQLAlchemy, pandas</li>
+            <li>PostgreSQL (Supabase)</li>
+            <li>Scrapy, BeautifulSoup, Playwright</li>
+            <li>Git, Docker, REST API design</li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <h4>AI in workflow</h4>
+          <ul>
+            <li>LLM APIs (Groq) for classification pipelines</li>
+            <li>Retrieval-augmented generation (RAG)</li>
+            <li>Voyage AI embeddings</li>
+            <li>Claude, ChatGPT — daily tooling</li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <h4>Web &amp; Operations</h4>
+          <ul>
+            <li>JavaScript / TypeScript, Flask, Django</li>
+            <li>Project &amp; grant management (Erasmus+)</li>
+            <li>Cross-team stakeholder coordination</li>
+            <li>Adobe, Canva</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="wrap">
+      <div class="contact-row reveal">
+        <div>
+          <span class="section-num">03 — Get in touch</span>
+          <h2>Contact</h2>
+          <p class="muted">Open to backend/data developer roles and freelance missions. Relocating to Warsaw in September 2026.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:coline.eyssautier@gmail.com">coline.eyssautier@gmail.com</a>
+          <a href="https://linkedin.com/in/YOUR-LINKEDIN">linkedin.com/in/YOUR-LINKEDIN</a>
+          <a href="https://github.com/YOUR-GITHUB-USERNAME">github.com/YOUR-GITHUB-USERNAME</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 Coline Eyssautier</span>
+        <span>Built with a single HTML file, deployed on GitHub Pages</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    els.forEach(el => io.observe(el));
+  } else {
+    els.forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
