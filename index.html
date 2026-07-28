@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coline Eyssautier — Backend &amp; Data Developer</title>
-<meta name="description" content="Portfolio of Coline Eyssautier — backend and data developer specializing in automation pipelines, RAG systems, and operations tooling.">
+<title>Coline Eyssautier — Operations &amp; Automation</title>
+<meta name="description" content="Coline Eyssautier — operations, project coordination and executive support, with a self-taught technical edge in automation and internal tooling.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -88,7 +88,7 @@
   }
   .tagline{
     font-size:clamp(1.05rem, 2vw, 1.25rem);
-    color:var(--muted); max-width:620px; margin:0 0 32px;
+    color:var(--muted); max-width:640px; margin:0 0 32px;
   }
   .hero-meta{
     display:flex; flex-wrap:wrap; gap:10px 22px;
@@ -96,7 +96,6 @@
     margin-bottom:36px;
   }
   .hero-meta span{display:flex; align-items:center; gap:7px;}
-  .hero-meta span::before{content:"·"; color:var(--border); display:none;}
 
   .cta-row{display:flex; flex-wrap:wrap; gap:14px;}
   .btn{
@@ -158,8 +157,10 @@
   section{padding:72px 0;}
   section + section{border-top:1px solid var(--border);}
   .section-head{
-    display:flex; align-items:baseline; justify-content:space-between;
-    margin-bottom:36px; flex-wrap:wrap; gap:10px;
+    margin-bottom:16px;
+  }
+  .section-intro{
+    color:var(--muted); font-size:14.5px; max-width:600px; margin:14px 0 36px;
   }
   .section-num{
     font-family:var(--mono); font-size:12.5px; color:var(--accent);
@@ -169,7 +170,27 @@
     font-weight:600; margin:6px 0 0;
   }
 
-  /* ---------- PROJECTS ---------- */
+  /* ---------- EXPERIENCE (operations) ---------- */
+  .exp-list{display:flex; flex-direction:column; gap:0;}
+  .exp-item{
+    display:grid; grid-template-columns:190px 1fr; gap:24px;
+    padding:26px 0; border-top:1px solid var(--border);
+  }
+  .exp-item:last-child{border-bottom:1px solid var(--border);}
+  @media (max-width:680px){.exp-item{grid-template-columns:1fr; gap:6px;}}
+  .exp-when{
+    font-family:var(--mono); font-size:12px; color:var(--muted);
+  }
+  .exp-role{
+    font-family:var(--display); font-size:1.1rem; font-weight:600; margin:0 0 4px;
+  }
+  .exp-org{
+    font-family:var(--mono); font-size:12.5px; color:var(--accent); margin:0 0 10px;
+  }
+  .exp-desc{color:var(--muted); font-size:14.5px; margin:0;}
+  .exp-desc b{color:var(--text); font-weight:600;}
+
+  /* ---------- PROJECTS / AUTOMATION ---------- */
   .grid{
     display:grid; grid-template-columns:repeat(2, 1fr); gap:18px;
   }
@@ -193,6 +214,7 @@
   }
   .status.deployed{background:rgba(95,191,166,0.14); color:var(--accent);}
   .status.active{background:rgba(226,179,60,0.14); color:var(--amber);}
+  .status.internal{background:rgba(139,143,156,0.14); color:var(--muted);}
   .card p{margin:0; color:var(--muted); font-size:14.5px;}
   .stack{display:flex; flex-wrap:wrap; gap:7px; margin-top:2px;}
   .tag{
@@ -207,6 +229,9 @@
     padding-bottom:2px; transition:color .15s ease, border-color .15s ease;
   }
   .card-links a:hover{color:var(--accent); border-color:var(--accent);}
+  .card-note{
+    font-size:12.5px; color:var(--muted); font-style:italic; margin:0;
+  }
 
   .edit-note{
     font-family:var(--mono); font-size:11.5px; color:var(--amber);
@@ -256,7 +281,8 @@
   <div class="wrap nav-inner">
     <a href="#top" class="mark">COLINE EYSSAUTIER</a>
     <nav class="links">
-      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#automation">Automation</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -266,9 +292,9 @@
 <main>
   <section class="hero" id="top">
     <div class="wrap">
-      <p class="eyebrow">Backend &amp; Data Developer</p>
+      <p class="eyebrow">Operations &amp; Automation</p>
       <h1>I run operations end-to-end,<br>then automate the parts that repeat.</h1>
-      <p class="tagline">Self-taught backend and data developer building scraping pipelines, LLM classification systems, and REST APIs — with an operations background that shapes how I scope and ship them.</p>
+      <p class="tagline">Hands-on experience coordinating international programmes, campaign operations and executive support, plus a self-taught technical edge: I build the internal tools and automations that make delivery, scheduling and reporting run without friction.</p>
 
       <div class="hero-meta">
         <span>Relocating to Warsaw, Sept 2026</span>
@@ -277,30 +303,79 @@
       </div>
 
       <div class="cta-row">
-        <a href="#projects" class="btn btn-primary">View projects</a>
-        <a href="https://github.com/YOUR-GITHUB-USERNAME" class="btn btn-ghost">GitHub</a>
-        <a href="https://linkedin.com/in/YOUR-LINKEDIN" class="btn btn-ghost">LinkedIn</a>
+        <a href="#experience" class="btn btn-primary">View experience</a>
+        <a href="https://github.com/colineeyssautier/" class="btn btn-ghost">GitHub</a>
+        <a href="https://www.linkedin.com/in/coline-eyssautier-a3a71a33b/" class="btn btn-ghost">LinkedIn</a>
       </div>
 
       <div class="pipeline" aria-hidden="true">
         <div class="pipeline-stage active"><span class="dot"></span>SCOPE</div>
         <div class="pipeline-connector"></div>
-        <div class="pipeline-stage active"><span class="dot"></span>BUILD</div>
+        <div class="pipeline-stage active"><span class="dot"></span>COORDINATE</div>
         <div class="pipeline-connector"></div>
         <div class="pipeline-stage active"><span class="dot"></span>AUTOMATE</div>
         <div class="pipeline-connector"></div>
-        <div class="pipeline-stage active"><span class="dot"></span>SHIP</div>
+        <div class="pipeline-stage active"><span class="dot"></span>DELIVER</div>
       </div>
     </div>
   </section>
 
-  <section id="projects">
+  <section id="experience">
     <div class="wrap">
       <div class="section-head reveal">
-        <div>
-          <span class="section-num">01 — Selected work</span>
-          <h2>Projects</h2>
+        <span class="section-num">01 — Operations &amp; coordination</span>
+        <h2>Experience</h2>
+        <p class="section-intro">Managing programmes, budgets, stakeholders and people end-to-end — the core of what I do, across NGO, campaign and tech environments.</p>
+      </div>
+
+      <div class="exp-list reveal">
+
+        <div class="exp-item">
+          <div class="exp-when">May – Aug 2026</div>
+          <div>
+            <p class="exp-role">International Project Manager &amp; Developer</p>
+            <p class="exp-org">Square of Youth Association, Budapest</p>
+            <p class="exp-desc">Planned complete <b>Erasmus+ Youth Exchange programmes end-to-end</b> — activities, logistics, budget — to meet European Commission validation criteria. Drafted grant applications with full cost allocation, identified and coordinated partner NGOs across Europe.</p>
+          </div>
         </div>
+
+        <div class="exp-item">
+          <div class="exp-when">Oct 2025 – Mar 2026</div>
+          <div>
+            <p class="exp-role">Campaign Manager Assistant</p>
+            <p class="exp-org">Renouveau pour Mouvaux, municipal elections, France</p>
+            <p class="exp-desc">Acted as the <b>candidate's right hand</b>: managed his inbox and calls, triaged access, tracked follow-ups, prepared agendas. Organised events end-to-end, venues, catering, logistics. Ran the campaign CRM and coordinated canvassing teams.</p>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-when">May 2025 – Present</div>
+          <div>
+            <p class="exp-role">Co-founder &amp; Vice-President</p>
+            <p class="exp-org">PromethEUs, European student media association</p>
+            <p class="exp-desc">Team and project management, partnership negotiation, editorial coordination, and website design and maintenance.</p>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-when">Jun 2026 – Present</div>
+          <div>
+            <p class="exp-role">Data &amp; Automation Developer</p>
+            <p class="exp-org">Mythodologie, remote</p>
+            <p class="exp-desc">Technical differentiator on top of the operations work: built scraping and LLM classification pipelines, a REST API, and a dashboard for non-technical researchers. Detail below.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="automation">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-num">02 — Technical differentiator</span>
+        <h2>Automation &amp; internal tooling</h2>
+        <p class="section-intro">Because operations work is faster when the repetitive parts run themselves, a few things I've built, for organisations and for my own workflow.</p>
       </div>
 
       <div class="grid">
@@ -310,7 +385,7 @@
             <h3>Metal Finder</h3>
             <span class="status deployed">Deployed</span>
           </div>
-          <p>Concert discovery platform: automated scraping of live show listings, deduplication, and search, deployed on a production schedule.</p>
+          <p>Concert discovery platform: automated scraping of live show listings, deduplication, and search, running on a production schedule.</p>
           <div class="stack">
             <span class="tag">FastAPI</span>
             <span class="tag">SQLite</span>
@@ -319,10 +394,8 @@
             <span class="tag">Cloud Run</span>
           </div>
           <div class="card-links">
-            <a href="https://metal-finder.online/">Code ↗</a>
-            <a href="#">Live ↗</a>
+            <a href="https://metal-finder.online/">Live ↗</a>
           </div>
-          <span class="edit-note">edit: https://metal-finder.online/</span>
         </div>
 
         <div class="card reveal">
@@ -336,40 +409,33 @@
             <span class="tag">Groq LLM API</span>
             <span class="tag">FastAPI</span>
             <span class="tag">Streamlit</span>
-            <span class="tag">TF-IDF / K-Means</span>
           </div>
           <div class="card-links">
-            <a href="https://corpus-bacot.onrender.com/#">Code ↗</a>
-            <a href="#">Dataset ↗</a>
+            <a href="https://corpus-bacot.onrender.com/">Live ↗</a>
           </div>
-          <span class="edit-note">edit: https://corpus-bacot.onrender.com/#</span>
         </div>
 
         <div class="card reveal">
           <div class="card-top">
-            <h3>FreelanceOps</h3>
-            <span class="status active">In progress</span>
+            <h3>Slack → Anki flashcard pipeline</h3>
+            <span class="status internal">Internal tool</span>
           </div>
-          <p>Freelance management API built as a deliberate PostgreSQL skill-building project: async ORM, migrations, auth, and a live dashboard.</p>
+          <p>Personal automation for language learning: messages sent to a Slack channel are queued, auto-translated, and turned into Anki flashcards across multiple decks, no manual card creation.</p>
           <div class="stack">
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">SQLAlchemy 2.0</span>
-            <span class="tag">Alembic</span>
-            <span class="tag">JWT Auth</span>
-            <span class="tag">Streamlit</span>
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">AnkiConnect</span>
+            <span class="tag">Queue system</span>
           </div>
-          <div class="card-links">
-            <a href="https://github.com/YOUR-GITHUB-USERNAME/freelanceops">Code ↗</a>
-          </div>
-          <span class="edit-note">edit: add real link</span>
+          <p class="card-note">No public link — internal tool. Screenshots on request.</p>
         </div>
 
         <div class="card reveal">
           <div class="card-top">
-            <h3>SOYA RAG Pipeline</h3>
-            <span class="status active">In progress</span>
+            <h3>SOYA Grant Assistant (RAG)</h3>
+            <span class="status active">Demo available</span>
           </div>
-          <p>Internal AI assistant for Erasmus+ grant analysis: multilingual Hungarian PDF ingestion, retrieval-augmented generation, and a query interface for non-technical staff.</p>
+          <p>Internal AI assistant for Erasmus+ grant viability analysis: multilingual Hungarian PDF ingestion, retrieval-augmented generation, query interface for non-technical staff.</p>
           <div class="stack">
             <span class="tag">Groq</span>
             <span class="tag">Voyage AI</span>
@@ -377,9 +443,10 @@
             <span class="tag">Streamlit</span>
           </div>
           <div class="card-links">
-            <a href="https://analysis-pipeline-t6ft.onrender.com/">Code ↗</a>
+            <a href="#">Demo ↗</a>
           </div>
-          <span class="edit-note">edit: https://analysis-pipeline-t6ft.onrender.com/</span>
+          <p class="card-note">Production system runs on private organisational data. Demo above uses synthetic sample documents only.</p>
+          <span class="edit-note">edit: confirm this points to the DEMO deployment, not production, before publishing</span>
         </div>
 
       </div>
@@ -389,37 +456,36 @@
   <section id="skills">
     <div class="wrap">
       <div class="section-head reveal">
-        <div>
-          <span class="section-num">02 — Toolkit</span>
-          <h2>Skills</h2>
-        </div>
+        <span class="section-num">03 — Toolkit</span>
+        <h2>Skills</h2>
       </div>
       <div class="skills-grid reveal">
+        <div class="skill-col">
+          <h4>Operations &amp; Coordination</h4>
+          <ul>
+            <li>Project &amp; grant management (Erasmus+)</li>
+            <li>Executive &amp; scheduling support</li>
+            <li>Cross-team stakeholder coordination</li>
+            <li>Event &amp; logistics organisation</li>
+            <li>CRM management</li>
+          </ul>
+        </div>
         <div class="skill-col">
           <h4>Automation &amp; Data</h4>
           <ul>
             <li>Python — FastAPI, SQLAlchemy, pandas</li>
             <li>PostgreSQL (Supabase)</li>
-            <li>Scrapy, BeautifulSoup, Playwright</li>
+            <li>LLM APIs (Groq) for classification &amp; RAG</li>
             <li>Git, Docker, REST API design</li>
           </ul>
         </div>
         <div class="skill-col">
-          <h4>AI in workflow</h4>
+          <h4>Tools &amp; Languages</h4>
           <ul>
-            <li>LLM APIs (Groq) for classification pipelines</li>
-            <li>Retrieval-augmented generation (RAG)</li>
-            <li>Voyage AI embeddings</li>
-            <li>Claude, ChatGPT — daily tooling</li>
-          </ul>
-        </div>
-        <div class="skill-col">
-          <h4>Web &amp; Operations</h4>
-          <ul>
-            <li>JavaScript / TypeScript, Flask, Django</li>
-            <li>Project &amp; grant management (Erasmus+)</li>
-            <li>Cross-team stakeholder coordination</li>
+            <li>Google Workspace, Notion, Slack</li>
             <li>Adobe, Canva</li>
+            <li>French (native), English &amp; German (professional)</li>
+            <li>Polish (intermediate, learning toward B2)</li>
           </ul>
         </div>
       </div>
@@ -430,14 +496,14 @@
     <div class="wrap">
       <div class="contact-row reveal">
         <div>
-          <span class="section-num">03 — Get in touch</span>
+          <span class="section-num">04 — Get in touch</span>
           <h2>Contact</h2>
-          <p class="muted">Open to backend/data developer roles and freelance missions. Relocating to Warsaw in September 2026.</p>
+          <p class="muted">Open to operations, project management and executive assistant roles in tech and international organisations. Relocating to Warsaw in September 2026.</p>
         </div>
         <div class="contact-links">
           <a href="mailto:coline.eyssautier@gmail.com">coline.eyssautier@gmail.com</a>
-          <a href="https://www.linkedin.com/in/coline-eyssautier-a3a71a33b/">linkedin.com/in/YOUR-LINKEDIN</a>
-          <a href="https://github.com/colineeyssautier/">github.com/YOUR-GITHUB-USERNAME</a>
+          <a href="https://www.linkedin.com/in/coline-eyssautier-a3a71a33b/">linkedin.com/in/coline-eyssautier</a>
+          <a href="https://github.com/colineeyssautier/">github.com/colineeyssautier</a>
         </div>
       </div>
       <div class="foot-bottom">
