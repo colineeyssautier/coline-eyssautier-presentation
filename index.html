@@ -189,6 +189,10 @@
   }
   .exp-desc{color:var(--muted); font-size:14.5px; margin:0;}
   .exp-desc b{color:var(--text); font-weight:600;}
+  .exp-bullets{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:7px;}
+  .exp-bullets li{position:relative; padding-left:14px; color:var(--muted); font-size:14.5px;}
+  .exp-bullets li::before{content:"–"; position:absolute; left:0; color:var(--accent-dim);}
+  .exp-bullets b{color:var(--text); font-weight:600;}
 
   /* ---------- PROJECTS / AUTOMATION ---------- */
   .grid{
@@ -297,8 +301,8 @@
       <p class="tagline">Hands-on experience coordinating international programmes, campaign operations and executive support, plus a self-taught technical edge: I build the internal tools and automations that make delivery, scheduling and reporting run without friction.</p>
 
       <div class="hero-meta">
-        <span>Relocating to Warsaw, Sept 2026</span>
-        <span>French · English · German · Polish (learning)</span>
+        <span>Warsaw</span>
+        <span>French · English · German · Polish (intermediate)</span>
         <span>coline.eyssautier@gmail.com</span>
       </div>
 
@@ -333,18 +337,28 @@
         <div class="exp-item">
           <div class="exp-when">May – Aug 2026</div>
           <div>
-            <p class="exp-role">International Project Manager &amp; Developer</p>
+            <p class="exp-role">International Project Manager &amp; Developer | Internship</p>
             <p class="exp-org">Square of Youth Association, Budapest</p>
-            <p class="exp-desc">Planned complete <b>Erasmus+ Youth Exchange programmes end-to-end</b> — activities, logistics, budget — to meet European Commission validation criteria. Drafted grant applications with full cost allocation, identified and coordinated partner NGOs across Europe.</p>
+            <ul class="exp-bullets">
+              <li>Point of contact for partner organisations across Europe, coordinating communication in a fast-moving, multi-country environment.</li>
+              <li>Tracked the full document trail for <b>Erasmus+ youth exchanges</b>: residence permits, attendance sheets, Youthpass certificates, travel reimbursements, since a single missing paper could delay EU funding.</li>
+              <li>Processed <b>~260 grant documents</b> (roughly 100 pages each) through a segmentation-and-embedding pipeline feeding Claude's API, which answered financial-viability questions and flagged ways to strengthen a project before submission.</li>
+            </ul>
           </div>
         </div>
 
         <div class="exp-item">
           <div class="exp-when">Oct 2025 – Mar 2026</div>
           <div>
-            <p class="exp-role">Campaign Manager Assistant</p>
+            <p class="exp-role">Executive Assistant</p>
             <p class="exp-org">Renouveau pour Mouvaux, municipal elections, France</p>
-            <p class="exp-desc">Acted as the <b>candidate's right hand</b>: managed his inbox and calls, triaged access, tracked follow-ups, prepared agendas. Organised events end-to-end, venues, catering, logistics. Ran the campaign CRM and coordinated canvassing teams.</p>
+            <ul class="exp-bullets">
+              <li>Acted as the <b>candidate's right hand</b>: managed his inbox and incoming calls, and decided who got direct access to him.</li>
+              <li>Ran ~30 cold calls a day; inviting people to events, asking for campaign help, gauging sentiment, converting roughly <b>7 in 100</b> into confirmed engagement.</li>
+              <li>Managed a <b>CRM of 200+ contacts</b>, automated new-supporter registration through the campaign website (~20 sign-ups/day).</li>
+              <li>Organised <b>4 political meetings</b> end-to-end; venue, invitations, on-site logistics, gathering around 200 attendees each.</li>
+              <li>Fed recurring themes from those calls back into speech prep, giving the candidate concrete talking points instead of generic ones.</li>
+            </ul>
           </div>
         </div>
 
@@ -363,6 +377,19 @@
             <p class="exp-role">Data &amp; Automation Developer</p>
             <p class="exp-org">Mythodologie, remote</p>
             <p class="exp-desc">Technical differentiator on top of the operations work: built scraping and LLM classification pipelines, a REST API, and a dashboard for non-technical researchers. Detail below.</p>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-when">Jul – Aug 2026</div>
+          <div>
+            <p class="exp-role">People &amp; Strategy Assistant</p>
+            <p class="exp-org">LogistIQ Consulting, remote</p>
+            <ul class="exp-bullets">
+              <li>Automated <b>8 recruitment forms</b> with Google Apps Script (clasp): any change to the master question library now propagates to every form's settings automatically.</li>
+              <li>Used the resulting scoring system to rank hundreds of applications, supporting <b>8 hires</b>, one per division.</li>
+              <li>Worked directly with the hiring team to set the scoring criteria, while keeping the final call on each candidate human.</li>
+            </ul>
           </div>
         </div>
 
